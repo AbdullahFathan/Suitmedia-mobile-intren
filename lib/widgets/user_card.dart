@@ -46,7 +46,7 @@ class UserCardWidget extends StatelessWidget {
                   height: 4,
                 ),
                 Text(
-                  userModel.email,
+                  userModel.email.toUpperCase(),
                   style: mediumFont(greyColor, 10),
                 )
               ],
