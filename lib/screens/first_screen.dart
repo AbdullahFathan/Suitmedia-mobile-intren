@@ -23,10 +23,12 @@ class _FirstScreenState extends State<FirstScreen> {
     super.dispose();
   }
 
-  String isPalindrome(String input) {
+  String checkPalindrome(String input) {
     String words = input.replaceAll(" ", "").toLowerCase();
 
-    return (words == words.split('').reversed.join('')).toString();
+    bool isPalindrome = words == words.split('').reversed.join('');
+
+    return isPalindrome ? "isPalindrome" : "not palindrome";
   }
 
   @override
@@ -77,7 +79,7 @@ class _FirstScreenState extends State<FirstScreen> {
                   showDialog(
                     context: context,
                     builder: (context) => PopUpWidget(
-                        text: isPalindrome(palindromeTextController.text)),
+                        text: checkPalindrome(palindromeTextController.text)),
                   );
                 }
               },
