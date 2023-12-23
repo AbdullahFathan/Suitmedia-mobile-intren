@@ -33,7 +33,6 @@ class _ThirdScreenState extends State<ThirdScreen> {
         _scrollController.position.pixels ==
             _scrollController.position.maxScrollExtent) {
       //make sure there is still available page in the server
-
       if (page < totalPage) {
         page++;
         context.read<UserCubit>().fetchMoreUserData(page, false);
@@ -64,6 +63,7 @@ class _ThirdScreenState extends State<ThirdScreen> {
             }
             return RefreshIndicator(
               onRefresh: () async {
+                //reset page number to initial value as [1]
                 page = 1;
                 context.read<UserCubit>().fetchUserData(page, true);
               },

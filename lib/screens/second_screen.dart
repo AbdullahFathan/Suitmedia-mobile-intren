@@ -33,11 +33,6 @@ class _SecondScreenState extends State<SecondScreen> {
       appBar: appBarWidget(
         "Second Screen",
         context,
-        onBackButtonPressed: (String result) {
-          setState(() {
-            selectedUserName = result;
-          });
-        },
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
@@ -68,7 +63,7 @@ class _SecondScreenState extends State<SecondScreen> {
             ButtonWidget(
               textButton: "Choose a User",
               onPressed: () async {
-                // Navigate to ThirdScreen and get result
+                //get selected user name from thrid page
                 final result = await Navigator.push(
                   context,
                   MaterialPageRoute(
@@ -76,6 +71,7 @@ class _SecondScreenState extends State<SecondScreen> {
                   ),
                 );
 
+                //update current selected user name
                 setState(() {
                   selectedUserName = result;
                 });
